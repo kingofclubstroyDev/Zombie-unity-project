@@ -8,9 +8,12 @@ public class MoveTowardsTarget : Action
     {
         bool isStopped = controller.agent.isStopped;
         if(controller.target == null) {
-            if(isStopped) return;
 
-            controller.agent.isStopped = true;
+            if(!isStopped) {
+
+                controller.agent.isStopped = true;
+            }
+            return;
         }
 
         if(Vector3.Distance(controller.transform.position, controller.target.transform.position) <= controller.AIVariables.attackRange) {
@@ -25,7 +28,7 @@ public class MoveTowardsTarget : Action
         if(isStopped) {
             controller.agent.isStopped = false;
         }
-        
+
         controller.agent.destination = controller.target.transform.position;
  
     }
