@@ -6,12 +6,15 @@ using UnityEngine;
 public class AttackAction : Action
 {
     public override void Act(StateController controller)
-    {
-        
+    {   
         if(controller.target == null) return;
 
-        //if()
+        if(Vector3.Distance(controller.transform.position, controller.target.transform.position) <= controller.AIVariables.attackRange) {
 
+            //todo add some actuall attacking
+            Destroy(controller.target);
+
+        } 
       
     }
 

@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class StateController : MonoBehaviour
 {
     bool changedStateThisUpdate = false;
-    [SerializeField] public AIVariables AIVariables;
+    public AIVariables AIVariables;
     [HideInInspector] float stateTimeElapsed;
     [SerializeField] State currentState;
     [SerializeField] List<Transition> generalTransitions;
@@ -16,7 +16,7 @@ public class StateController : MonoBehaviour
     public NavMeshAgent agent {
         get {return _agent;}
     }
-    private GameObject _target;
+    [SerializeField] private GameObject _target;
     public GameObject target
     {
         get { return _target; }
@@ -27,7 +27,7 @@ public class StateController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AIVariables = GetComponent<AIVariables>();
+        //AIVariables = GetComponent<AIVariables>();
         _agent.speed = AIVariables.moveSpeed;
 
     }
@@ -97,6 +97,10 @@ public class StateController : MonoBehaviour
 
     public bool checkNewTarget() {
         return (Time.time - timeTargetChosen >= AIVariables.timeToCheckNewEnemy);
+    }
+
+    public void printMessage(string message) {
+        print(message);
     }
 
 }

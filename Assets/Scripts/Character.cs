@@ -6,5 +6,17 @@ using UnityEngine.AI;
 
 
 public class Character : MonoBehaviour {
+
+    
+
+    private void Start() {
+        
+    }
+
+    private void Update() {
+        
+    }
+
+
     
 }

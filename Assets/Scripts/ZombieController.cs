@@ -13,7 +13,7 @@ public class ZombieController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        agent.speed = aiVariables.moveSpeed;
+        //agent.speed = aiVariables.moveSpeed;
     }
 
     // Update is called once per frame

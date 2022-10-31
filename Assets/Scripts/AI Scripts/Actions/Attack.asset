@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fc52d1bad7e7f64887f60d3683bb67b, type: 3}
-  m_Name: ToAttack
+  m_Script: {fileID: 11500000, guid: 65745b71551c9af4b8fb43e0cacc62b6, type: 3}
+  m_Name: Attack
   m_EditorClassIdentifier: 
-  decision: {fileID: 11400000, guid: f2391efd3d6f34e5886684bf96e4e596, type: 2}
-  newState: {fileID: 11400000, guid: 1f2d5c271e1724e99a9c557c9ea10149, type: 2}
