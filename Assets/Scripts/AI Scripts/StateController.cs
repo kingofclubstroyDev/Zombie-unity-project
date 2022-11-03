@@ -10,8 +10,7 @@ public class StateController : MonoBehaviour
     [HideInInspector] float stateTimeElapsed;
     [SerializeField] State currentState;
     [SerializeField] List<Transition> generalTransitions;
-
-    
+    [SerializeField] public bool isZombie; 
     [SerializeField] NavMeshAgent _agent;
     public NavMeshAgent agent {
         get {return _agent;}
@@ -23,6 +22,8 @@ public class StateController : MonoBehaviour
     }
 
     private float timeTargetChosen;
+
+    private float timeLastAttacked;
 
     // Start is called before the first frame update
     void Start()
@@ -99,8 +100,31 @@ public class StateController : MonoBehaviour
         return (Time.time - timeTargetChosen >= AIVariables.timeToCheckNewEnemy);
     }
 
-    public void printMessage(string message) {
-        print(message);
+    public bool attack() {
+
+        if(target == null) {
+            print("target == null");
+            return false;
+
+        } 
+
+        if(Time.fixedTime - timeLastAttacked < AIVariables.attackSpeed) {
+            return false;
+        }
+        
+        timeLastAttacked = Time.fixedTime;
+
+        Attackable attackable = target.GetComponent<Attackable>();
+
+        if(attackable == null) {
+            print("attackable is null");
+            return false;
+        }
+
+       attackable.attack(AIVariables.attackDamage);
+
+        return true;
+
     }
 
 }

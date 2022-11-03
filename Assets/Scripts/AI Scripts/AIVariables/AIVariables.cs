@@ -7,9 +7,9 @@ using Unity.Mathematics;
 public class AIVariables : ScriptableObject
 {
     public float moveSpeed;
-    public float health;
+    public int health;
     public float attackRange;
-    public float attackDamage;
+    public int attackDamage;
     public float attackSpeed;
     public float visionRange;
 

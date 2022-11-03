@@ -6,6 +6,10 @@ public class MoveTowardsTarget : Action
 {
     public override void Act(StateController controller)
     {
+        if(controller.agent.isActiveAndEnabled == false) return;
+        if(controller.gameObject == null) return;
+        if(controller.agent == null) return;
+
         bool isStopped = controller.agent.isStopped;
         if(controller.target == null) {
 

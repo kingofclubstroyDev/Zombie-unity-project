@@ -17,6 +17,10 @@ public class ZombieTracker : MonoBehaviour
         
     }
 
+    private void OnDestroy() {
+        removeZombie(gameObject);
+    }
+
     public static void ClearZombies() {
         zombies.Clear();
     }

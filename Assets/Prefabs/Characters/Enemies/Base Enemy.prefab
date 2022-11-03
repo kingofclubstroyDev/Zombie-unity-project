@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 2332896078089842004}
   - component: {fileID: 2332896078089841995}
   - component: {fileID: 2332896078089842007}
-  - component: {fileID: 2332896078089842000}
+  - component: {fileID: 2179907994920181126}
+  - component: {fileID: 970142884319226762}
+  - component: {fileID: 8318784793707762759}
   m_Layer: 0
   m_Name: Base Enemy
   m_TagString: Untagged
@@ -112,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aacb590616f124a90a3194a69bb09e26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2332896078089842000
+--- !u!114 &2179907994920181126
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,7 +123,47 @@ MonoBehaviour:
   m_GameObject: {fileID: 2332896078089841993}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33ba67c8cf10743e780b31e42ff684cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f65a1cc4628d774da1bb3298b6e6d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aiVariables: {fileID: 0}
+  AIVariables: {fileID: 11400000, guid: c479425c9701940dd8bb0ae9554496a1, type: 2}
+  currentState: {fileID: 11400000, guid: 5573c18106b07443ebcef09eaf154cbc, type: 2}
+  generalTransitions: []
+  isZombie: 0
+  _agent: {fileID: 970142884319226762}
+  _target: {fileID: 0}
+--- !u!195 &970142884319226762
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2332896078089841993}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 20
+  avoidancePriority: 50
+  m_AngularSpeed: 360
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &8318784793707762759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2332896078089841993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f40465ba0b3f4b919aa07452905671f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  variables: {fileID: 11400000, guid: c479425c9701940dd8bb0ae9554496a1, type: 2}
