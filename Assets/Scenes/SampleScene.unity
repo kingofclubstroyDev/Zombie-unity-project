@@ -348,7 +348,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 20
+  orthographic size: 75
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -357,7 +357,7 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 0
-  m_HDR: 1
+  m_HDR: 0
   m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
@@ -426,8 +426,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7161bd1782494429ba3fc00d61b1a6f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPoints: 4
-  initializedThisFrame: 0
 --- !u!114 &601074606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -440,8 +438,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57600fb14bd894a528ae5824cd0430be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPoints: 4
-  initializedThisFrame: 0
 --- !u!4 &601074607
 Transform:
   m_ObjectHideFlags: 0
