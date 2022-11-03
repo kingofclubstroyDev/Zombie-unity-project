@@ -9,17 +9,7 @@ public class QuadTree
     public bool initializedThisFrame;
     Quad rootQuad;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        instance = this;
-    }
-
-    void Update() {
-
-        initializedThisFrame = false;
-
-    }
+    
 
     private void initializeQuad(List<GameObject> gameObjects, float width) {
 
@@ -40,8 +30,6 @@ public class QuadTree
 
             i++;
         }
-
-        print("complete initializing quad");
 
     }
     public List<GameObject> getNearbyObjects2(Vector2 position, float range) {

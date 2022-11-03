@@ -6,7 +6,7 @@ public class EnemyTree : MonoBehaviour
 {
 
     QuadTree quadTree;
-    EnemyTree instance;
+    public static EnemyTree instance;
 
     public List<GameObject> getNearbyObjects(Vector3 position, float range) {
 
