@@ -30,7 +30,7 @@ public class CameraController : MonoBehaviour
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
-        if(h != 0 && v != 0) {
+        if(h != 0 || v != 0) {
         
             transform.Translate(new Vector3(h, v).normalized * moveSpeed);
 
