@@ -39,15 +39,13 @@ public class CameraController : MonoBehaviour
         float zoom = Input.mouseScrollDelta.y;
         
         if(zoom != 0) {
-        
-            print(zoom);
             
             targetZoom += zoom * zoomSensitivity;
-            float newSize = Mathf.MoveTowards(theCam.orthographicSize, targetZoom, zoomSpeed * Time.deltaTime);
-            theCam.orthographicSize = newSize;
 
         }
-          
-          
+
+        if(theCam.orthographicSize != targetZoom) {
+            theCam.orthographicSize = Mathf.MoveTowards(theCam.orthographicSize, targetZoom, zoomSpeed * Time.deltaTime);
+        }
     }
 }
