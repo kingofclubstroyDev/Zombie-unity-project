@@ -7,9 +7,9 @@ public class CameraController : MonoBehaviour
 
     public static CameraController instance;
     private Camera theCam;
-    public float moveSpeed;
-    public float zoomSpeed;
-    public float zoomSensitivity;
+    [SerializeField] float moveSpeed;
+    [SerializeField] float zoomSpeed;
+    [SerializeField] float zoomSensitivity;
     float targetZoom;
     
     public void Awake() 
@@ -26,14 +26,25 @@ public class CameraController : MonoBehaviour
 
     // Update is called once per frame
     void LateUpdate()
-    {   
-    
+    {
+        float h = Input.GetAxisRaw("Horizontal");
+        float v = Input.GetAxisRaw("Vertical");
+
+        if(h != 0 && v != 0) {
         
-        transform.Translate(new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized * moveSpeed);
+            transform.Translate(new Vector3(h, v).normalized * moveSpeed);
+
+        }
+
+        float zoom = Input.mouseScrollDelta.y;
+
+        if(zoom != 0) {
         
-        targetZoom += Input.mouseScrollDelta.y * zoomSensitivity;
-        float newSize = Mathf.MoveTowards(theCam.orthographicSize, targetZoom, zoomSpeed * Time.deltaTime);
-        theCam.orthographicSize = newSize;
+            targetZoom += zoom * zoomSensitivity;
+            float newSize = Mathf.MoveTowards(theCam.orthographicSize, targetZoom, zoomSpeed * Time.deltaTime);
+            theCam.orthographicSize = newSize;
+
+        }
           
           
     }
