@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   health: 0
-  attackRange: 0.5
+  attackRange: 5
   attackDamage: 0
   attackSpeed: 0
-  visionRange: 40
+  visionRange: 200
   timeToCheckNewEnemy: 5
