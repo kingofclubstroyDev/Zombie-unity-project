@@ -7,8 +7,15 @@ public class FindEnemy : Action
     public override void Act(StateController controller)
     {
         Vector3 position = controller.transform.position;
-        List<GameObject> enemies = EnemyTree.instance.getNearbyObjects(position, controller.AIVariables.visionRange);
 
+        List<GameObject> enemies;
+
+        if(controller.isZombie) {
+            enemies = EnemyTree.instance.getNearbyObjects(position, controller.AIVariables.visionRange);
+        } else {
+             enemies = ZombieTree.instance.getNearbyObjects(position, controller.AIVariables.visionRange);
+        }
+        
         float MinDistance = 0;
 
         GameObject closest = null;

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Pion
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  health: 0
+  health: 100
   attackRange: 5
-  attackDamage: 0
-  attackSpeed: 0
+  attackDamage: 10
+  attackSpeed: 0.5
   visionRange: 200
   timeToCheckNewEnemy: 5

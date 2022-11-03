@@ -16,6 +16,10 @@ public class EnemyTracker : MonoBehaviour
     private void Update() {
     }
 
+    private void OnDestroy() {
+        removeEnemy(gameObject);
+    }
+
      public static void removeEnemy(GameObject enemy) {
         enemies.Remove(enemy);
     }
