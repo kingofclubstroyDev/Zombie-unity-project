@@ -391,9 +391,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8031ea4a7392845f8a5f66545ec79888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.5
+  moveSpeed: 0.1
   zoomSpeed: 30
-  zoomSensitivity: 1
+  zoomSensitivity: 0.1
 --- !u!1 &601074604
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,6 +593,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4788719819446506684, guid: fd6aeab7912864958ae102e401eb4d3e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9f5668b0c439e44bc95462319e615608, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd6aeab7912864958ae102e401eb4d3e, type: 3}
 --- !u!1 &827893175
