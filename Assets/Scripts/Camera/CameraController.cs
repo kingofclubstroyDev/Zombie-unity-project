@@ -31,17 +31,13 @@ public class CameraController : MonoBehaviour
         float v = Input.GetAxisRaw("Vertical");
 
         if(h != 0 || v != 0) {
-        
             transform.parent.Translate(new Vector3(h, 0, v).normalized * moveSpeed);
-
         }
 
         float zoom = Input.mouseScrollDelta.y;
         
         if(zoom != 0) {
-            
             targetZoom += zoom * zoomSensitivity;
-
         }
 
         if(theCam.orthographicSize != targetZoom) {

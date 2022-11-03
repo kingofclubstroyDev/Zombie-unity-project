@@ -31,8 +31,12 @@ public class Quad {
         }
         points.Add(obj);
         if(points.Count == maxPoints) {
+
             SplitQuad();
+            
         }
+
+        
     }
 
     private void addToChildren(GameObject obj) {
@@ -69,7 +73,9 @@ public class Quad {
         children.Add(new Quad(new Vector2(location.x + newWidth, location.z + newWidth), newWidth, maxPoints));
 
         foreach(GameObject obj in points) {
+
             children[getChildIndex(obj.transform.position)].AddPoint(obj);
+            
         }
 
         points.Clear();

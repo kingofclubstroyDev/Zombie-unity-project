@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-public class QuadTree : MonoBehaviour
+public class QuadTree
 {
     [SerializeField] int maxPoints;
     public static QuadTree instance;
@@ -32,17 +32,41 @@ public class QuadTree : MonoBehaviour
         }
 
         rootQuad = new Quad(new Vector3(0,0,0), width, maxPoints);
-
+        int i = 0;
         foreach(GameObject obj in gameObjects) {
+            //print(obj);
+            //print(i);
             rootQuad.AddPoint(obj);
+
+            i++;
         }
 
+        print("complete initializing quad");
+
     }
-    public List<GameObject> getNearbyObjects(Vector2 position, float range) {
+    public List<GameObject> getNearbyObjects2(Vector2 position, float range) {
         if(! initializedThisFrame) {
+            //TODO: make size dynamic and not enemy specific
             initializeQuad(EnemyTracker.getEnemies(), 1000);
         }
         return rootQuad.getNearbyGameobjects(position, range, new List<GameObject>());
+    }
+
+    internal List<GameObject> getNearbyObjects(Vector3 position, float range,  List<GameObject> objects) {
+       
+
+        List<GameObject> nearby = new List<GameObject>();
+
+        foreach(GameObject obj in objects) {
+
+            if(Vector3.Distance(position, obj.transform.position) <= range) {
+                nearby.Add(obj);
+            }
+
+        }
+
+        return nearby;
+
     }
 
     public static bool checkOverlap(float R, float Xc, float Yc,
