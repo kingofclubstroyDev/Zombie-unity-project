@@ -15,7 +15,7 @@ MonoBehaviour:
   moveSpeed: 10
   health: 100
   attackRange: 5
-  attackDamage: 10
+  attackDamage: 5
   attackSpeed: 0.5
   visionRange: 200
   timeToCheckNewEnemy: 5
