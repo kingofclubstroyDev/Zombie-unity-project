@@ -12,6 +12,9 @@ public class AIVariables : ScriptableObject
     public int attackDamage;
     public float attackSpeed;
     public float visionRange;
-
     public float timeToCheckNewEnemy;
+
+    public int infectionChance;
+
+
 }

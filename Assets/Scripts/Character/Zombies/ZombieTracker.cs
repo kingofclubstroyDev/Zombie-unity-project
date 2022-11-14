@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,20 +6,9 @@ public class ZombieTracker : MonoBehaviour
 
     private static List<GameObject> zombies = new List<GameObject>();
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        zombies.Add(gameObject);
-    }
-
-    private void Update() {
-        
-    }
-
     private void OnDestroy() {
         removeZombie(gameObject);
     }
-
     public static void ClearZombies() {
         zombies.Clear();
     }
@@ -31,6 +19,12 @@ public class ZombieTracker : MonoBehaviour
 
     public static void addZombie(GameObject zombie) {
         zombies.Add(zombie);
+    }
+
+    public static void Infect(Transform transform, GameObject infectedZombie) {
+
+        Instantiate(infectedZombie, transform);
+
     }
 
     public static List<GameObject> getZombies() {

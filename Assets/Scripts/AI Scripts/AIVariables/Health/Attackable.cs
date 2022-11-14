@@ -20,16 +20,12 @@ public class Attackable : MonoBehaviour
 
     public bool attack(int damage) {
 
-        print("being attacked");
-
         if(currentHealth <= damage) {
             Destroy(gameObject);
             return true;
         }
 
         currentHealth -= damage;
-
-        print("current health = " + currentHealth);
 
         return false;
     }

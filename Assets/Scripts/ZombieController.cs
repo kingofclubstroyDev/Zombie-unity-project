@@ -1,10 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class ZombieController : MonoBehaviour
 {
+
+    void Start()
+    {
+        ZombieTracker.addZombie(gameObject);
+    }
+
     private void OnDestroy() {
         ZombieTracker.removeZombie(gameObject);
     }

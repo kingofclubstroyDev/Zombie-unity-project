@@ -1,20 +1,12 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyTracker : MonoBehaviour
 {
 
-    public static List<GameObject> enemies = new List<GameObject>();
+    private static List<GameObject> enemies = new List<GameObject>();
 
     // Start is called before the first frame update
-    void Start()
-    {
-        enemies.Add(gameObject);
-    }
-
-    private void Update() {
-    }
 
     private void OnDestroy() {
         removeEnemy(gameObject);

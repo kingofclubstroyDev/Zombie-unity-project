@@ -12,6 +12,9 @@ public class StateController : MonoBehaviour
     [SerializeField] List<Transition> generalTransitions;
     [SerializeField] public bool isZombie; 
     [SerializeField] NavMeshAgent _agent;
+
+    private Perception perception;
+
     public NavMeshAgent agent {
         get {return _agent;}
     }
@@ -30,6 +33,9 @@ public class StateController : MonoBehaviour
     {
         //AIVariables = GetComponent<AIVariables>();
         _agent.speed = AIVariables.moveSpeed;
+        perception = GetComponentInChildren<Perception>();
+
+        perception.setVisionRadius(AIVariables.visionRange);
 
     }
 
@@ -91,9 +97,10 @@ public class StateController : MonoBehaviour
 
     }
 
-    public void setTarget(GameObject newTarget) {
+    private void setTarget(GameObject newTarget) {
         _target = newTarget;
         timeTargetChosen = Time.time;
+        perception.disablePerception();
     }
 
     public bool checkNewTarget() {
@@ -121,9 +128,64 @@ public class StateController : MonoBehaviour
             return false;
         }
 
-       attackable.attack(AIVariables.attackDamage);
+        
+
+       if(attackable.attack(AIVariables.attackDamage)) {
+
+           // target is destroyed
+        //    if(AIVariables.infectionChance > 0) {
+
+        //        if(Random.Range(0, 100) <= AIVariables.infectionChance) {
+
+        //            ZombieTracker.Infect(target.transform, );
+
+        //        }
+
+        //    }
+
+       }
 
         return true;
+
+    }
+
+    public void getNearestTarget() {
+
+        if(!perception.perceptionEnabled) {
+            perception.enablePerception();
+            return;
+        }
+
+        List<GameObject> objects = perception.objects;
+
+        if(objects.Count == 0) return;
+
+        Vector3 position = transform.position;
+
+        float MinDistance = 0;
+
+        GameObject closest = null;
+
+        foreach(GameObject obj in objects) {
+
+            if(obj == null) continue;
+
+            float distance = Vector3.Distance(position, obj.transform.position);
+
+            if(MinDistance == 0 || distance < MinDistance) {
+                closest = obj;
+                MinDistance = distance;
+            }
+
+        }
+
+        if(closest == null) {
+
+            return;
+            
+        }
+
+        setTarget(closest);
 
     }
 
