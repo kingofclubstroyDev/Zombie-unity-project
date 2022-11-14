@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Enemy Shader
+  m_Name: Strong Shader 1
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ValidKeywords:
   - _EMISSION
@@ -63,7 +63,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _GlossMapScale: 0
+    - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
     - _Metallic: 0
@@ -76,6 +76,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.5754717, g: 0.024430392, b: 0.046039786, a: 1}
-    - _EmissionColor: {r: 0.6037736, g: 0.014239941, b: 0.014239941, a: 1}
+    - _Color: {r: 0.024563907, g: 0.13001662, b: 0.2264151, a: 1}
+    - _EmissionColor: {r: 0, g: 0.40532622, b: 0.6509804, a: 1}
   m_BuildTextureStacks: []

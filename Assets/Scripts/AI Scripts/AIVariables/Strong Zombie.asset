@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d9e83bfa798445d3bf7723652a1f1bd, type: 3}
-  m_Name: Pion
+  m_Name: Strong Zombie
   m_EditorClassIdentifier: 
   moveSpeed: 20
-  health: 100
+  health: 200
   attackRange: 5
-  attackDamage: 5
+  attackDamage: 10
   attackSpeed: 0.5
   visionRange: 500
   timeToCheckNewEnemy: 5
