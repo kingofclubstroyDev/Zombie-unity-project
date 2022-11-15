@@ -26,6 +26,8 @@ public class Attackable : MonoBehaviour
         }
 
         currentHealth -= damage;
+        
+        GameEvents.instance.UnitAttackTarget(gameObject);
 
         return false;
     }

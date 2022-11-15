@@ -21,6 +21,15 @@ public class GameEvents : MonoBehaviour
         onUnitDeath(obj);
 
     }
+    
+    public event Action<GameObject> onUnitAttackTarget;
+    
+    public void UnitAttackTarget(GameObject obj) {
+    
+        if(onUnitAttackTarget == null) return;
+        
+        onUnitAttackTarget(obj);
+    }
 
 }
 
