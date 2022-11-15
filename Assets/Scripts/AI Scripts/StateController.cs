@@ -17,6 +17,8 @@ public class StateController : MonoBehaviour
     private int framePathUpdated;
     private bool awaitingPath = false;
 
+    public int framesPerPathUpdate = 1;
+
     private Perception perception;
 
     public NavMeshAgent agent {
@@ -198,11 +200,7 @@ public class StateController : MonoBehaviour
 
         if(agent.pathPending) return;
 
-        if(Time.frameCount - framePathUpdated > 30) {
-
-            print(target.transform.position);
-
-            print(pendingPath);
+        if(Time.frameCount - framePathUpdated > framesPerPathUpdate) {
 
             agent.CalculatePath(target.transform.position, pendingPath);
             framePathUpdated = Time.frameCount;
