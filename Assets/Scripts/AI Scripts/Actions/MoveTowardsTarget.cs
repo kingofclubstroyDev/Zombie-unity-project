@@ -33,7 +33,7 @@ public class MoveTowardsTarget : Action
             controller.agent.isStopped = false;
         }
 
-        controller.agent.destination = controller.target.transform.position;
+        controller.moveTowardsTarget();
  
     }
     

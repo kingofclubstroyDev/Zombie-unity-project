@@ -13,6 +13,10 @@ public class StateController : MonoBehaviour
     [SerializeField] public bool isZombie; 
     [SerializeField] NavMeshAgent _agent;
 
+    NavMeshPath pendingPath;
+    private int framePathUpdated;
+    private bool awaitingPath = false;
+
     private Perception perception;
 
     public NavMeshAgent agent {
@@ -36,6 +40,7 @@ public class StateController : MonoBehaviour
         perception = GetComponentInChildren<Perception>();
 
         perception.setVisionRadius(AIVariables.visionRange);
+        pendingPath = new NavMeshPath();
 
     }
 
@@ -186,6 +191,28 @@ public class StateController : MonoBehaviour
         }
 
         setTarget(closest);
+
+    }
+
+    public void moveTowardsTarget() {
+
+        if(agent.pathPending) return;
+
+        if(Time.frameCount - framePathUpdated > 30) {
+
+            print(target.transform.position);
+
+            print(pendingPath);
+
+            agent.CalculatePath(target.transform.position, pendingPath);
+            framePathUpdated = Time.frameCount;
+            awaitingPath = true;
+        }
+
+        if(awaitingPath) {
+            agent.SetPath(pendingPath);
+            awaitingPath = false;
+        }
 
     }
 
