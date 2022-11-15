@@ -8,7 +8,7 @@ public class EventListener : MonoBehaviour {
 
     private void onUnitDeath(GameObject obj) {
 
-        print("unit died");
+        print("EventListener: onUnitDeath: " + obj.name);
 
     }
 

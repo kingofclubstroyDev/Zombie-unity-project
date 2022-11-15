@@ -16,7 +16,6 @@ public class StateController : MonoBehaviour
     NavMeshPath pendingPath;
     private int framePathUpdated;
     private bool awaitingPath = false;
-
     public int framesPerPathUpdate = 1;
 
     private Perception perception;
@@ -210,6 +209,20 @@ public class StateController : MonoBehaviour
         if(awaitingPath) {
             agent.SetPath(pendingPath);
             awaitingPath = false;
+        }
+
+    }
+
+    private void OnCollisionEnter(Collision other) {
+
+        string tag = isZombie ? "Enemy" : "Zombie";
+
+        if(other.gameObject.tag != tag) return;
+
+        if(target != other.gameObject) {
+
+            setTarget(other.gameObject);
+
         }
 
     }
