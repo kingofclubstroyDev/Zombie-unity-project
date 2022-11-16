@@ -33,6 +33,8 @@ public class StateController : MonoBehaviour
 
     private float timeLastAttacked;
 
+    private Attackable attackable;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +44,12 @@ public class StateController : MonoBehaviour
 
         perception.setVisionRadius(AIVariables.visionRange);
         pendingPath = new NavMeshPath();
+
+        attackable = GetComponent<Attackable>();
+
+        attackable.initialize(AIVariables.health);
+
+
 
     }
 
@@ -127,27 +135,37 @@ public class StateController : MonoBehaviour
         
         timeLastAttacked = Time.fixedTime;
 
-        Attackable attackable = target.GetComponent<Attackable>();
-
         if(attackable == null) {
             print("attackable is null");
             return false;
         }
 
-        
-
+        //TODO: fix this
+        Transform targetTransform = target.transform;
+        Vector3 position = targetTransform.position;
+        Quaternion quaternion = targetTransform.rotation;
        if(attackable.attack(AIVariables.attackDamage)) {
 
            // target is destroyed
-        //    if(AIVariables.infectionChance > 0) {
+           if(AIVariables.infectionChance > 0) {
 
-        //        if(Random.Range(0, 100) <= AIVariables.infectionChance) {
+               print("infection chance : " + AIVariables.infectionChance);
 
-        //            ZombieTracker.Infect(target.transform, );
+               if(Random.Range(0, 100) <= AIVariables.infectionChance) {
 
-        //        }
+                   print(targetTransform);
 
-        //    }
+                   Infection infection = GetComponent<Infection>();
+
+                   if(infection != null) {
+                       infection.infect(position, quaternion);
+                   }
+
+                   
+
+               }
+
+           }
 
        }
         
@@ -156,6 +174,8 @@ public class StateController : MonoBehaviour
         return true;
 
     }
+
+
 
     public void getNearestTarget() {
 

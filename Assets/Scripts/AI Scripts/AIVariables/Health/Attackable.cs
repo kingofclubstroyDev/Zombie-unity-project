@@ -8,12 +8,11 @@ public class Attackable : MonoBehaviour
     private int maxHealth;
     private int currentHealth;
 
-    [SerializeField] AIVariables variables;
-
-    // Start is called before the first frame update
-    void Start()
+    
+    
+    public void initialize(int health)
     {
-        maxHealth = variables.health;
+        maxHealth = health;
         currentHealth = maxHealth;
 
     }
