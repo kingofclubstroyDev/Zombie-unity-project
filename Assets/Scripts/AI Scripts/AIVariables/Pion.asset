@@ -19,4 +19,4 @@ MonoBehaviour:
   attackSpeed: 0.5
   visionRange: 100
   timeToCheckNewEnemy: 5
-  infectionChance: 100
+  infectionChance: 0

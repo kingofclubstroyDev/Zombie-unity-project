@@ -49,8 +49,6 @@ public class StateController : MonoBehaviour
 
         attackable.initialize(AIVariables.health);
 
-
-
     }
 
     // Update is called once per frame
