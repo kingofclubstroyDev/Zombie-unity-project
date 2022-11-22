@@ -35,6 +35,8 @@ public class StateController : MonoBehaviour
 
     private Attackable attackable;
 
+    private Rigidbody rigidBody;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +50,10 @@ public class StateController : MonoBehaviour
         attackable = GetComponent<Attackable>();
 
         attackable.initialize(AIVariables.health);
+
+        rigidBody = GetComponent<Rigidbody>();
+
+
 
     }
 
@@ -142,28 +148,28 @@ public class StateController : MonoBehaviour
         Transform targetTransform = target.transform;
         Vector3 position = targetTransform.position;
         Quaternion quaternion = targetTransform.rotation;
-       if(attackable.attack(AIVariables.attackDamage)) {
+        if(attackable.attack(AIVariables.attackDamage)) {
 
            // target is destroyed
            if(AIVariables.infectionChance > 0) {
 
-               print("infection chance : " + AIVariables.infectionChance);
-
                if(Random.Range(0, 100) <= AIVariables.infectionChance) {
-
-                   print(targetTransform);
 
                    Infection infection = GetComponent<Infection>();
 
                    if(infection != null) {
-                       infection.infect(position, quaternion);
-                   }
 
-                   
+                       GameEvents.instance.UnitInfected(target.gameObject, infection.newZombie);
+                       //infection.infect(position, quaternion);
+                    }   
 
+               } else {
+                   Destroy(target.gameObject);
                }
 
-           }
+            } else {
+                Destroy(target.gameObject);
+            }
 
        }
         
@@ -245,6 +251,22 @@ public class StateController : MonoBehaviour
 
         }
 
+    }
+
+    public void stopMoving() {
+
+        if(agent.isStopped == false) {
+            agent.isStopped = true;
+        }
+
+        if(rigidBody.velocity != Vector3.zero) {
+            rigidBody.velocity = Vector3.zero;
+        }
+
+    }
+
+    public void continueMoving() {
+        agent.isStopped = false;
     }
 
 }

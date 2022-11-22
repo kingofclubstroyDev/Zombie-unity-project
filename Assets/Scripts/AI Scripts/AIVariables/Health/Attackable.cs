@@ -20,7 +20,6 @@ public class Attackable : MonoBehaviour
     public bool attack(int damage) {
 
         if(currentHealth <= damage) {
-            Destroy(gameObject);
             return true;
         }
 

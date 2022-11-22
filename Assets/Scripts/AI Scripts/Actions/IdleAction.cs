@@ -5,6 +5,8 @@ public class IdleAction : Action
 {
     public override void Act(StateController controller)
     {
+
+        controller.stopMoving();
         
     }
 }

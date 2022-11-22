@@ -31,6 +31,16 @@ public class GameEvents : MonoBehaviour
         onUnitAttackTarget(obj);
     }
 
+    public event Action<GameObject, GameObject> onUnitInfected;
+
+    public void UnitInfected(GameObject target, GameObject newZombie) {
+
+        if(onUnitInfected == null) return;
+
+        onUnitInfected(target, newZombie);
+
+    }
+
 }
 
 

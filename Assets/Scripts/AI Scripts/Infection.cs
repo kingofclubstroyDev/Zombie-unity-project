@@ -5,7 +5,7 @@ using UnityEngine;
 public class Infection : MonoBehaviour
 {
 
-    [SerializeField] GameObject newZombie;
+    [SerializeField] public GameObject newZombie;
 
     public void infect(Vector3 position, Quaternion quaternion) {
 

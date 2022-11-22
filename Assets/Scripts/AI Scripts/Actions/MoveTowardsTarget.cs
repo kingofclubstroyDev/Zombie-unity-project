@@ -15,7 +15,7 @@ public class MoveTowardsTarget : Action
 
             if(!isStopped) {
 
-                controller.agent.isStopped = true;
+                controller.stopMoving();
             }
             return;
         }
@@ -25,12 +25,14 @@ public class MoveTowardsTarget : Action
             //in range of attack, so lets stop moving
             if(isStopped) return;
 
-            controller.agent.isStopped = true;
+            controller.stopMoving();
+
+            return;
 
         }
 
         if(isStopped) {
-            controller.agent.isStopped = false;
+            controller.continueMoving();
         }
 
         controller.moveTowardsTarget();
