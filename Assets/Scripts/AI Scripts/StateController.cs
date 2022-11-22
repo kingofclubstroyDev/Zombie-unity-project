@@ -10,6 +10,7 @@ public class StateController : MonoBehaviour
     [HideInInspector] float stateTimeElapsed;
     [SerializeField] State currentState;
     [SerializeField] List<Transition> generalTransitions;
+    [SerializeField] List<Action> generalActions;
     [SerializeField] public bool isZombie; 
     [SerializeField] NavMeshAgent _agent;
 
@@ -35,7 +36,7 @@ public class StateController : MonoBehaviour
 
     private Attackable attackable;
 
-    private Rigidbody rigidBody;
+    public Rigidbody rigidBody;
 
     // Start is called before the first frame update
     void Start()
@@ -54,7 +55,6 @@ public class StateController : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>();
 
 
-
     }
 
     // Update is called once per frame
@@ -69,6 +69,12 @@ public class StateController : MonoBehaviour
                 break;
 
             }
+        }
+
+        foreach(Action action in generalActions) {
+
+            action.Act(this);
+
         }
 
         currentState?.UpdateState(this);
@@ -267,6 +273,12 @@ public class StateController : MonoBehaviour
 
     public void continueMoving() {
         agent.isStopped = false;
+    }
+
+    public float getTimeToAttack() {
+
+        return Time.fixedTime - timeLastAttacked;
+
     }
 
 }
