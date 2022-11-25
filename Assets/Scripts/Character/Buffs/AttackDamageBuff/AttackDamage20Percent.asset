@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 323426a40ac3c4db2b69d7fe1ca1b8af, type: 3}
   m_Name: AttackDamage20Percent
   m_EditorClassIdentifier: 
-  attackDamagePercentBuff: 0
+  attackDamagePercentBuff: 20

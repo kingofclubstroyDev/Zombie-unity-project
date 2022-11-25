@@ -9,14 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d9e83bfa798445d3bf7723652a1f1bd, type: 3}
-  m_Name: Infected Zombie
+  m_Script: {fileID: 11500000, guid: fe5202972931545efa4c990c10ad2c3d, type: 3}
+  m_Name: HealthBuff100Percent
   m_EditorClassIdentifier: 
-  moveSpeed: 20
-  health: 50
-  attackRange: 7
-  attackDamage: 5
-  attackSpeed: 0.5
-  visionRange: 100
-  timeToCheckNewEnemy: 5
-  infectionChance: 10
+  healthPercentBuff: 100

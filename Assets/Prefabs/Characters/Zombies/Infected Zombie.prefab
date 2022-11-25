@@ -202,10 +202,28 @@ MonoBehaviour:
   AIVariables: {fileID: 11400000, guid: 1e65d310d1796441585ab59fc6d55775, type: 2}
   currentState: {fileID: 11400000, guid: 5573c18106b07443ebcef09eaf154cbc, type: 2}
   generalTransitions: []
+  generalActions: []
   isZombie: 1
   _agent: {fileID: 4788719819446506681}
   framesPerPathUpdate: 1
   _target: {fileID: 0}
+  rigidBody: {fileID: 0}
+  buffs:
+  - {fileID: 11400000, guid: 706b9b7420066450e9a1e094d9c24585, type: 2}
+  - {fileID: 11400000, guid: 5fe648b6fa3fb46ab8dd376b4d0fcfdd, type: 2}
+  - {fileID: 11400000, guid: 532c425d2a8004c2bb3f21272f919870, type: 2}
+  - {fileID: 11400000, guid: 5fe648b6fa3fb46ab8dd376b4d0fcfdd, type: 2}
+  - {fileID: 11400000, guid: 706b9b7420066450e9a1e094d9c24585, type: 2}
+  - {fileID: 11400000, guid: 15672f26cbacd4d3a847725f74a74815, type: 2}
+  stats:
+    moveSpeed: 0
+    health: 0
+    attackRange: 0
+    attackDamage: 0
+    attackSpeed: 0
+    visionRange: 0
+    timeToCheckNewEnemy: 0
+    infectionChance: 0
 --- !u!114 &4673687181937627074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,6 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f40465ba0b3f4b919aa07452905671f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentHealth: 0
 --- !u!54 &4348745102737370007
 Rigidbody:
   m_ObjectHideFlags: 0

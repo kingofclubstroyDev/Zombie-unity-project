@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd7d476ea8074d6d986f102c84d2ea7, type: 3}
   m_Name: MoveSpeed50Percent
   m_EditorClassIdentifier: 
-  moveSpeedPercentBuff: 0
+  moveSpeedPercentBuff: 50

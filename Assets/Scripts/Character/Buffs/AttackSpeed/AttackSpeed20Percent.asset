@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c49f6cc2baa142ba99a3dd710c3ed9b, type: 3}
   m_Name: AttackSpeed20Percent
   m_EditorClassIdentifier: 
-  attackSpeedPercentBuff: 0
+  attackSpeedPercentBuff: 20
