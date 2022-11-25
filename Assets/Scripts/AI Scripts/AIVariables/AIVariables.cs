@@ -9,7 +9,7 @@ public class AIVariables : ScriptableObject
     public float moveSpeed;
     public int health;
     public float attackRange;
-    public int attackDamage;
+    public float attackDamage;
     public float attackSpeed;
     public float visionRange;
     public float timeToCheckNewEnemy;

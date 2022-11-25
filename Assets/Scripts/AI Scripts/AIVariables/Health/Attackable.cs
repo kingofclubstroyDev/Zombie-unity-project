@@ -5,11 +5,9 @@ using UnityEngine;
 public class Attackable : MonoBehaviour
 {
 
-    private int maxHealth;
-    private int currentHealth;
+    private float maxHealth;
+    [SerializeField] private float currentHealth;
 
-    
-    
     public void initialize(int health)
     {
         maxHealth = health;
@@ -17,7 +15,7 @@ public class Attackable : MonoBehaviour
 
     }
 
-    public bool attack(int damage) {
+    public bool attack(float damage) {
 
         if(currentHealth <= damage) {
             return true;

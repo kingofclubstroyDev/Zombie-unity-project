@@ -8,13 +8,15 @@ public class KiteTarget : Action
     {
 
         if(controller.target == null) return;
+
+        UnitStats stats = controller.stats;
         
         //kite if the target is closer than 75% the max attack range
-        if(Vector3.Distance(controller.transform.position, controller.target.transform.position) < controller.AIVariables.attackRange * 0.75) {
+        if(Vector3.Distance(controller.transform.position, controller.target.transform.position) < stats.attackRange * 0.75) {
 
             float timeSinceLastAttack = controller.getTimeToAttack();
 
-            float fifthAttackSpeed = controller.AIVariables.attackSpeed / 5;
+            float fifthAttackSpeed = stats.attackSpeed / 5;
 
             // don't move if the target is about to attack, or has jut recently attacked, to mimic attack prep, and after shot
             if(timeSinceLastAttack < fifthAttackSpeed || timeSinceLastAttack > (fifthAttackSpeed * 4)) {
@@ -23,10 +25,8 @@ public class KiteTarget : Action
 
             Vector3 direction = (controller.target.transform.position - controller.transform.position).normalized;
 
-            Vector3 newDirection = direction * controller.AIVariables.moveSpeed * Time.deltaTime;
-
             // move at half speed away when kiting
-            Vector3 newPosition = controller.transform.position - (direction * ((controller.AIVariables.moveSpeed / 2) * Time.deltaTime));
+            Vector3 newPosition = controller.transform.position - (direction * ((stats.moveSpeed / 2) * Time.deltaTime));
 
             controller.transform.position = newPosition;
             

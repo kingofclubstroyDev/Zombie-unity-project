@@ -20,7 +20,7 @@ public class MoveTowardsTarget : Action
             return;
         }
 
-        if(Vector3.Distance(controller.transform.position, controller.target.transform.position) <= controller.AIVariables.attackRange) {
+        if(Vector3.Distance(controller.transform.position, controller.target.transform.position) <= controller.stats.attackRange) {
 
             //in range of attack, so lets stop moving
             if(isStopped) return;

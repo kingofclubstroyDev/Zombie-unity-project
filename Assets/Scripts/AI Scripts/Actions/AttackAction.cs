@@ -9,7 +9,7 @@ public class AttackAction : Action
 
         float distance = Vector3.Distance(controller.transform.position, controller.target.transform.position);
 
-        if(distance <= controller.AIVariables.attackRange) {
+        if(distance <= controller.stats.attackRange) {
             controller.attack();
         } 
       

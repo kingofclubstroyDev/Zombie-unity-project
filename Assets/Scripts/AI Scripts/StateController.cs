@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class StateController : MonoBehaviour
 {
     bool changedStateThisUpdate = false;
-    public AIVariables AIVariables;
+    [SerializeField] AIVariables AIVariables;
     [HideInInspector] float stateTimeElapsed;
     [SerializeField] State currentState;
     [SerializeField] List<Transition> generalTransitions;
@@ -38,19 +38,26 @@ public class StateController : MonoBehaviour
 
     public Rigidbody rigidBody;
 
+    [SerializeField] Buff[] buffs;
+
+    [SerializeField] public UnitStats stats;
+
     // Start is called before the first frame update
     void Start()
     {
+
+        stats = new UnitStats(AIVariables, buffs);
+
         //AIVariables = GetComponent<AIVariables>();
-        _agent.speed = AIVariables.moveSpeed;
+        _agent.speed = stats.moveSpeed;
         perception = GetComponentInChildren<Perception>();
 
-        perception.setVisionRadius(AIVariables.visionRange);
+        perception.setVisionRadius(stats.visionRange);
         pendingPath = new NavMeshPath();
 
         attackable = GetComponent<Attackable>();
 
-        attackable.initialize(AIVariables.health);
+        attackable.initialize(stats.health);
 
         rigidBody = GetComponent<Rigidbody>();
 
@@ -125,10 +132,18 @@ public class StateController : MonoBehaviour
         _target = newTarget;
         timeTargetChosen = Time.time;
         perception.disablePerception();
+        attackable = newTarget.GetComponent<Attackable>();
     }
 
     public bool checkNewTarget() {
-        return (Time.time - timeTargetChosen >= AIVariables.timeToCheckNewEnemy);
+
+        if(target == null) return true;
+
+        if(Vector3.Distance(transform.position, target.transform.position) <= stats.attackRange) {
+            timeTargetChosen = Time.time;
+            return false;
+        }
+        return (Time.time - timeTargetChosen >= stats.timeToCheckNewEnemy);
     }
 
     public bool attack() {
@@ -139,7 +154,7 @@ public class StateController : MonoBehaviour
 
         } 
 
-        if(Time.fixedTime - timeLastAttacked < AIVariables.attackSpeed) {
+        if(Time.fixedTime - timeLastAttacked < stats.attackSpeed) {
             return false;
         }
         
@@ -154,12 +169,12 @@ public class StateController : MonoBehaviour
         Transform targetTransform = target.transform;
         Vector3 position = targetTransform.position;
         Quaternion quaternion = targetTransform.rotation;
-        if(attackable.attack(AIVariables.attackDamage)) {
+        if(attackable.attack(stats.attackDamage)) {
 
            // target is destroyed
-           if(AIVariables.infectionChance > 0) {
+           if(stats.infectionChance > 0) {
 
-               if(Random.Range(0, 100) <= AIVariables.infectionChance) {
+               if(Random.Range(0, 100) <= stats.infectionChance) {
 
                    Infection infection = GetComponent<Infection>();
 

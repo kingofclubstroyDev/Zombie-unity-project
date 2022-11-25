@@ -9,14 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d9e83bfa798445d3bf7723652a1f1bd, type: 3}
-  m_Name: Ranged
+  m_Script: {fileID: 11500000, guid: 323426a40ac3c4db2b69d7fe1ca1b8af, type: 3}
+  m_Name: AttackDamage20Percent
   m_EditorClassIdentifier: 
-  moveSpeed: 20
-  health: 50
-  attackRange: 100
-  attackDamage: 3
-  attackSpeed: 3
-  visionRange: 100
-  timeToCheckNewEnemy: 1
-  infectionChance: 100
+  attackDamagePercentBuff: 0
