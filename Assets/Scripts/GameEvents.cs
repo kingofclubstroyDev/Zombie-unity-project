@@ -40,6 +40,16 @@ public class GameEvents : MonoBehaviour
         onUnitInfected(target, newZombie);
 
     }
+    
+    public event Action<int> onGroupSelected;
+    
+    public void GroupSelected(int num) {
+    
+        if(onGroupSelected == null) return;
+        
+        onGroupSelected(num);
+        
+    }
 
 }
 

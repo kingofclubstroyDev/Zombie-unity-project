@@ -9,13 +9,15 @@ public class EventListener : MonoBehaviour {
 
     private void onUnitDeath(GameObject obj) {
 
-        print("EventListener: onUnitDeath: " + obj.name);
+        // print("EventListener: onUnitDeath: " + obj.name);
 
     }
     
     private void onUnitAttackTarget(GameObject obj) {
-        print("EventListener: onUnitAttackTarget: " + obj.name);
+        // print("EventListener: onUnitAttackTarget: " + obj.name);
     }
+    
+
 
     private void OnDestroy() {
         GameEvents.instance.onUnitDeath -= onUnitDeath;
